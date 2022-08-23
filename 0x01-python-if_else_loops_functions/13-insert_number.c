@@ -1,5 +1,6 @@
 #include "lists.h"
 #include <stdlib.h>
+
 /**
  * insert_node - inserts node in sorted list
  * @head: address of head pointer
@@ -13,13 +14,16 @@ listint_t *insert_node(listint_t **head, int number)
 
 	if (!new)
 		return (NULL);
+
 	new->n = number;
 	new->next = NULL;
+
 	if (!node || new->n < node->n)
 	{
 		new->next = node;
 		return (*head = new);
 	}
+
 	while (node)
 	{
 		if (!node->next || new->n < node->next->n)
