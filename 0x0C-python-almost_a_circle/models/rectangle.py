@@ -95,5 +95,10 @@ class Rectangle(Base):
             [print(" ", end="") for x in range(self.x)]
             [print("#", end="") for w in range(self.width)]
             print("")
+    def __str__(self):
+        """Returns formatted information display
+        """
 
+        return "[{}] ({}) {}/{} - {}/{}".format(self.__class__.__name__,
+                self.id, self.__x, self.__y, self.__width, self.__height)
 
