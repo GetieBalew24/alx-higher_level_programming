@@ -2,7 +2,7 @@
 """Defines a base model class."""
 import json
 import csv
-
+import turtle
 
 class Base:
     """Represent the base model.
@@ -104,3 +104,42 @@ class Base:
                 # formatting with create()
                 res.append(cls.create(**res_dict))
         return res
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """Draw Rectangles and Squares using the turtle module.
+
+        Args:
+            list_rectangles : A list of Rectangle objects to draw.
+            list_squares : A list of Square objects to draw.
+        """
+        gui = turtle.Turtle()
+        gui.screen.bgcolor("green")
+        gui.pensize(3)
+        gui.shape("turtle")
+        gui.color("#ffffff")
+        for rect in list_rectangles:
+            gui.showturtle()
+            gui.up()
+            gui.goto(rect.x, rect.y)
+            gui.down()
+            for i in range(2):
+                gui.forward(rect.width)
+                gui.left(90)
+                gui.forward(rect.height)
+                gui.left(90)
+            gui.hideturtle()
+            
+        gui.color("#b5e3d8")
+        for sq in list_squares:
+            gui.showturtle()
+            gui.up()
+            gui.goto(sq.x, sq.y)
+            gui.down()
+            for i in range(2):
+                gui.forward(sq.width)
+                gui.left(90)
+                gui.forward(sq.height)
+                gui.left(90)
+            gui.hideturtle()
+            
+        turtle.exitonclick()
